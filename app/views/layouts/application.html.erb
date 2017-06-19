@@ -9,6 +9,20 @@
   </head>
 
   <body>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <% if current_user %>
+          <li><%= "Hello, #{current_user.username}!" %></li>
+          <li><%= link_to "Guests", guests_path %></li>
+          <li><%= link_to "Episodes", episodes_path %></li>
+          <li><%= link_to "Create New Apperance", new_appearance_path %></li>
+          <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Sign In", sessions_path %></li>
+        <% end %>
+      </ul>
+    </div>
     <%= yield %>
   </body>
 </html>
