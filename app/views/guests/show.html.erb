@@ -1,2 +1,7 @@
 <h1><%= @guest.name %></h1>
-<p><%= @guest.occupation %></p>
+<p><%= @guest.occupation %></p><br>
+<p>List of Episodes: </p>
+<p><% @guest.appearances.each do |appearance| %>
+<%= link_to "Episode #{appearance.episode.number} -- #{appearance.episode.date.strftime("%B %d, %Y")}", episode_path(appearance.episode) %><br>
+<% end %>
+</p>

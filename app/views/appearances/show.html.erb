@@ -3,3 +3,4 @@
 
 <li><%= link_to "Episode #{@appearance.episode.number} - #{@appearance.episode.date.strftime("%B %d, %Y")}", episode_path(@appearance.episode) %></li>
 <li><%= link_to "#{@appearance.guest.name}", guest_path(@appearance.guest) %></li>
+<li>Rating: <%= @appearance.rating %></li>

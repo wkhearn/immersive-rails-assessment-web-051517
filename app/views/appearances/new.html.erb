@@ -2,12 +2,12 @@
 
 
 <%= form_for @appearance do |f| %>
-  <%= f.label :guest_id %><br>
-  <%= f.text_field :guest_id %><br>
+  <%= f.label :guest_name %><br>
+  <%= f.collection_select(:guest_id, Guest.all, :id, :name, :include_blank => true) %><br>
   <%= f.label :episode_id %><br>
-  <%= f.text_field :episode_id %><br>
-  <%= f.label :rating %><br>
-  <%= f.text_field :rating %><br>
+  <%= f.collection_select(:episode_id, Episode.all, :id, :number_and_date, :include_blank => true) %><br>
+  <%= f.label :'Rating (1 - 5)' %><br>
+  <%= f.number_field :rating %><br>
   <br>
   <br>
   <%= f.submit 'Create Appearance' %>
